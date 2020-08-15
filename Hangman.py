@@ -17,7 +17,7 @@ def difficulty():
 
 #Function for the letter input from the player
 def player_input():
-    return input('\nGuess a letter which might be in the word: ')
+    return input('\nGuess a letter which might be in the word: ').lower()
 
 def verify_input(player_letter):
     if len(player_letter) == 1 and player_letter.isalpha():
@@ -56,9 +56,8 @@ def hangman ():
                     print(f'\nTry again!\n\n{hangstatus[counter]} \n\n Letters not in the word: {fail_list}\n\n')
                 else:
                     print(f'\nYou already tried {player_letter} and it was not in the the word')
-                    player_letter = player_input()
         else:
-            print('Not a single letter')
+            print('\nPlease only use letters and type them one at a time.')
     
     if counter >= 6:
         game = int(input(f'\nYou lost :(\n\nThe word was {computer_word}! {level.get(computer_word)}\n\nPress 2 if you want to play again or 0 to Exit: '))
